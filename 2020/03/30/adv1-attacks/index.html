@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 研小白的生活</title>
+  <title>五种对抗样本攻击算法总结 | 研小白的生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习笔记，生活随想~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="研小白的生活">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五种对抗样本攻击算法总结">
+<meta property="og:url" content="http://yoursite.com/2020/03/30/adv1-attacks/index.html">
 <meta property="og:site_name" content="研小白的生活">
-<meta property="og:description" content="学习笔记，生活随想~">
+<meta property="og:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-31T06:06:48.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="研小白的生活">
-<meta name="twitter:description" content="学习笔记，生活随想~">
+<meta name="twitter:title" content="五种对抗样本攻击算法总结">
+<meta name="twitter:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
   
     <link rel="alternative" href="/atom.xml" title="研小白的生活" type="application/atom+xml">
   
@@ -153,113 +154,159 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-adv1-attacks" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      五种对抗样本攻击算法总结
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/adv1-attacks/" class="archive-article-date">
+
+        
+        <a href="/2020/03/30/adv1-attacks/" class="archive-article-date">
   	<time datetime="2020-03-30T05:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/adv1-attacks/">五种对抗样本攻击算法总结</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。<br>其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-          
+<h1 id="1-相关基础知识"><a href="#1-相关基础知识" class="headerlink" title="1 相关基础知识"></a>1 相关基础知识</h1><p>##什么是对抗样本？<br>对抗样本由Szegedy等人提出，是指在原始样本中添加一些人眼难以识别的噪声，使模型以高置信度给出错误的输出。添加了噪声后的样本即为对抗样本。置信度，是概率里的<br>一个概念，指的是样本识别为特定目标的概率大小。</p>
+<h1 id="2-攻击算法一：FGSM算法"><a href="#2-攻击算法一：FGSM算法" class="headerlink" title="2 攻击算法一：FGSM算法"></a>2 攻击算法一：FGSM算法</h1><h1 id="3-攻击算法二：BIM算法"><a href="#3-攻击算法二：BIM算法" class="headerlink" title="3 攻击算法二：BIM算法"></a>3 攻击算法二：BIM算法</h1><h1 id="4-攻击算法三：DeepFool算法"><a href="#4-攻击算法三：DeepFool算法" class="headerlink" title="4 攻击算法三：DeepFool算法"></a>4 攻击算法三：DeepFool算法</h1><h1 id="5-攻击算法四：JSMA算法"><a href="#5-攻击算法四：JSMA算法" class="headerlink" title="5 攻击算法四：JSMA算法"></a>5 攻击算法四：JSMA算法</h1><h1 id="6-攻击算法五：C-amp-W算法"><a href="#6-攻击算法五：C-amp-W算法" class="headerlink" title="6 攻击算法五：C&amp;W算法"></a>6 攻击算法五：C&amp;W算法</h1>
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/30/adv1-attacks/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/12/build-course/" class="archive-article-date">
-  	<time datetime="2019-09-12T07:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/12/build-course/">如何用Github+Hexo搭建个人博客</a>
-    </h1>
+  
+    <a href="/2019/09/12/build-course/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何用Github+Hexo搭建个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/11/hello-world/" class="archive-article-date">
-  	<time datetime="2019-09-11T08:33:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/11/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -282,8 +329,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
