@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>五种对抗样本攻击算法总结 | evday</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
+  <meta name="description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="五种对抗样本攻击算法总结">
 <meta property="og:url" content="http://yoursite.com/2020/03/30/adv1-attacks/index.html">
 <meta property="og:site_name" content="evday">
-<meta property="og:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
+<meta property="og:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-31T09:55:06.023Z">
+<meta property="og:updated_time" content="2020-03-31T10:16:21.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="五种对抗样本攻击算法总结">
-<meta name="twitter:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
+<meta name="twitter:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
   
     <link rel="alternative" href="/atom.xml" title="evday" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的恶意攻击。<br>其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。</p>
+        <p>深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。</p>
 <a id="more"></a>
 
 <h1 id="1-相关基础知识"><a href="#1-相关基础知识" class="headerlink" title="1 相关基础知识"></a>1 相关基础知识</h1><h2 id="什么是对抗样本？"><a href="#什么是对抗样本？" class="headerlink" title="什么是对抗样本？"></a>什么是对抗样本？</h2><p>对抗样本由Szegedy等人提出，是指在原始样本中添加一些人眼难以识别的噪声，使模型以高置信度给出错误的输出。添加了噪声后的样本即为对抗样本。置信度，是概率里的一个概念，指的是样本识别为特定目标的概率大小。</p>
@@ -184,7 +184,7 @@
 <li><p><strong>无目标攻击(untargeted attack) &amp; 有目标攻击(targeted attack)</strong><br>无目标攻击：对抗样本输入模型，使得模型输出错误即可。<br>有目标攻击：对抗样本输入模型，使得模型的输出结果不但是错误输出，该错误输出还是特定的目标输出。</p>
 </li>
 </ul>
-<h2 id="梯度的概念"><a href="#梯度的概念" class="headerlink" title="梯度的概念"></a>梯度的概念</h2><p>梯度为，损失函数求导。<br>在深度神经网络的训练中，通过损失函数的反馈计算梯度，从而不断调整模型内部各层的参数，使得损失函数最小化。</p>
+<h2 id="损失函数-amp-梯度"><a href="#损失函数-amp-梯度" class="headerlink" title="损失函数&amp;梯度"></a>损失函数&amp;梯度</h2><p>在深度神经网络训练过程中，样本对应的真实标签为真实值，模型预测的标签值为预测值，损失函数表示的是预测值与真实值之间的误差。模型训练的过程就是不断修改参数追求损失函数最小的过程。梯度为损失函数的偏导，可以理解为函数某一点上升的坡度。在训练过程中，针对参数的调整可以使用梯度和学习率来定义。学习率也叫作学习步长，指的是变量在梯度方向上移动的长度。学习率过大会导致损失函数难以收敛，过小会导致计算缓慢。<br>$\nabla$</p>
 <h1 id="2-攻击算法一：FGSM算法"><a href="#2-攻击算法一：FGSM算法" class="headerlink" title="2 攻击算法一：FGSM算法"></a>2 攻击算法一：FGSM算法</h1><p><a href="https://arxiv.org/abs/1412.6572" target="_blank" rel="noopener">FGSM论文内容点击这里</a><br><strong>FGSM</strong>(Fast Gradient Sign Method)是一种基于梯度生成对抗样本的算法。其目标是最大化损失函数$J(x^*,y)$来获取对抗样本$x^*$。$J$是用来衡量分类误差的损失函数。</p>
 <p>原理：深度神经网络的训练，是追求损失函数最小化的过程。在求损失函数的最小值时，我们会沿着梯度的反方向移动，使用减号，即梯度下降算法。而FGSM算法可理解成梯度上升算法，即沿着梯度的方向移动，使用加号，求得损失函数的最大值。<br>其中sign为符号函数，括号里是损失函数对$x$的偏导。扰动值$\epsilon$是人为设定，但小于某一阈值。一旦扰动值超出阈值，该对抗样本会被人眼识别。</p>
 <h1 id="3-攻击算法二：BIM算法"><a href="#3-攻击算法二：BIM算法" class="headerlink" title="3 攻击算法二：BIM算法"></a>3 攻击算法二：BIM算法</h1><p><a href="https://arxiv.org/abs/1607.02533" target="_blank" rel="noopener">BIM论文点击这里</a><br><strong>BIM</strong>(Basic Iterative Method)算法也叫作<strong>I-FGSM</strong>算法，是FGSM算法的迭代。它将原扰动值$\epsilon$进行$T$次的迭代，每次的干扰值$\alpha=\epsilon/T$。</p>
