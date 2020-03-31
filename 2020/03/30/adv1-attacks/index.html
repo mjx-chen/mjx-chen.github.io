@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="evday">
 <meta property="og:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-31T11:18:23.473Z">
+<meta property="og:updated_time" content="2020-03-31T11:21:36.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="五种对抗样本攻击算法总结">
 <meta name="twitter:description" content="深度学习遍地开花，在方方面面影响和改变着人们的生活，如在智能驾驶、人脸识别以及智能家居等方面的应用。它作为非常复杂的软件系统，也面临着黑客的攻击。其中一类攻击便是对抗样本。下面，我将具体介绍对抗样本方面的一系列知识。">
@@ -186,7 +186,7 @@
 </ul>
 <h2 id="损失函数-amp-梯度"><a href="#损失函数-amp-梯度" class="headerlink" title="损失函数&amp;梯度"></a>损失函数&amp;梯度</h2><p>在深度神经网络训练过程中，样本对应的真实标签为真实值，模型预测的标签值为预测值，损失函数表示的是预测值与真实值之间的误差。模型训练的过程就是不断修改参数追求损失函数最小的过程。梯度为损失函数的偏导，可以理解为函数某一点上升的坡度。在训练过程中，针对参数的调整可以使用梯度和学习率来定义。<strong>学习率</strong>也叫作学习步长，指的是变量在梯度方向上移动的长度。学习率过大会导致损失函数难以收敛，过小会导致计算缓慢。</p>
 <h1 id="2-攻击算法一：FGSM算法"><a href="#2-攻击算法一：FGSM算法" class="headerlink" title="2 攻击算法一：FGSM算法"></a>2 攻击算法一：FGSM算法</h1><p><a href="https://arxiv.org/abs/1412.6572" target="_blank" rel="noopener">FGSM论文内容点击这里</a><br><strong>FGSM</strong>(Fast Gradient Sign Method)是一种基于梯度生成对抗样本的算法。其目标是最大化损失函数$J(x^*,y)$来获取对抗样本$x^*$。$J$是用来衡量分类误差的损失函数。</p>
-<p>原理：深度神经网络的训练，是追求损失函数最小化的过程。在求损失函数的最小值时，我们会沿着梯度的反方向移动，使用减号，即梯度下降算法。而FGSM算法可理解成梯度上升算法，即沿着梯度的方向移动，使用加号，求得损失函数的最大值。原始图像$x$，扰动值$\eplison$，对抗样本$x^/*=x+\eplison$。在扰动值的计算中，用到了sign符号函数，保证了变化方向同梯度放入方向一致。扰动值$\epsilon$是人为设定，但小于某一阈值。一旦扰动值超出阈值，该对抗样本会被人眼识别。</p>
+<p>原理：深度神经网络的训练，是追求损失函数最小化的过程。在求损失函数的最小值时，我们会沿着梯度的反方向移动，使用减号，即梯度下降算法。而FGSM算法可理解成梯度上升算法，即沿着梯度的方向移动，使用加号，求得损失函数的最大值。原始图像$x$，扰动值$\epsilon$，对抗样本$x^/*=x+\epsilon$。在扰动值的计算中，用到了sign符号函数，保证了变化方向同梯度放入方向一致。扰动值$\epsilon$是人为设定，但小于某一阈值。一旦扰动值超出阈值，该对抗样本会被人眼识别。</p>
 <h1 id="3-攻击算法二：BIM算法"><a href="#3-攻击算法二：BIM算法" class="headerlink" title="3 攻击算法二：BIM算法"></a>3 攻击算法二：BIM算法</h1><p><a href="https://arxiv.org/abs/1607.02533" target="_blank" rel="noopener">BIM论文点击这里</a><br><strong>BIM</strong>(Basic Iterative Method)算法也叫作<strong>I-FGSM</strong>算法，是FGSM算法的迭代。它将原扰动值$\epsilon$进行$T$次的迭代，每次的干扰值$\alpha=\epsilon/T$，直到所得的对抗样本足够使模型输出错误。</p>
 <p>裁剪(Clip):在迭代更新过程中，随着迭代次数的增加，样本的部分像素值可能会溢出，比如超出0到1的范围，这时需将这些值用0或1代替，最后才能生成有效的图像。该过程确保了新样本的各个像素在原样本各像素的某一领域内，不至于图像失真。</p>
 <h1 id="4-攻击算法三：DeepFool算法"><a href="#4-攻击算法三：DeepFool算法" class="headerlink" title="4 攻击算法三：DeepFool算法"></a>4 攻击算法三：DeepFool算法</h1><p><a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/html/Moosavi-Dezfooli_DeepFool_A_Simple_CVPR_2016_paper.html" target="_blank" rel="noopener">DeepFool论文点击这里</a><br><strong>DeepFool</strong>算法基于超平面的分类思想，可精准地计算扰动值。</p>
